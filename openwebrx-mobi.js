@@ -77,7 +77,8 @@ var rx_photo_state=1;
 
 function e(what) { return document.getElementById(what); }
 
-ios = /iPad|iPod|iPhone/.test(navigator.userAgent);
+ios = /iPad|iPod|iPhone|Chrome/.test(navigator.userAgent);
+is_chrome = /Chrome/.test(navigator.userAgent);
 //alert("ios="+ios.toString()+"  "+navigator.userAgent);
 
 function init_rx_photo()
@@ -192,7 +193,7 @@ function freqstep(sel){
 function updateShareLink(freq){
 	//console.log(freq);
 	var sqlSliderValue=parseInt(e("openwebrx-panel-squelch").value);
-	e("id-freq-link").innerHTML='<a href="'+base_url+'/webview#freq='+freq+',mod='+last_analog_demodulator_subtype+',sql='+sqlSliderValue+'" target="_blank" title="Share Settings"><img src="gfx/link.png"></a>';
+	e("id-freq-link").innerHTML='<a href="'+base_url+'/#freq='+freq+',mod='+last_analog_demodulator_subtype+',sql='+sqlSliderValue+'" target="_blank" title="Share Settings"><img src="gfx/link.png"></a>';
 
 }
 
@@ -1272,7 +1273,7 @@ function on_ws_recv(evt)
 		audio_prepare(audio_data);
 		audio_buffer_current_size_debug+=audio_data.length;
 		audio_buffer_all_size_debug+=audio_data.length;
-		if(!ios && (audio_initialized==0 && audio_prepared_buffers.length>audio_buffering_fill_to)) audio_init()
+		if(!(ios||is_chrome) && (audio_initialized==0 && audio_prepared_buffers.length>audio_buffering_fill_to)) audio_init()
 	}
 	else if(first3Chars=="FFT")
 	{
@@ -1732,6 +1733,7 @@ function audio_preinit()
 
 function audio_init()
 {
+	if(is_chrome) audio_context.resume()
 	if(starting_mute) toggleMute();
 
 	if(audio_client_resampling_factor==0) return; //if failed to find a valid resampling factor...
