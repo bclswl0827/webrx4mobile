@@ -40,7 +40,7 @@
         </div>
         <div id="webrx-top-bar-background" class="webrx-top-bar-parts"></div>
         <div id="webrx-top-bar" class="webrx-top-bar-parts">
-            <h3 style="color:#FFFFFF";>&nbsp;OpenWebRX</h2>
+            <h4 style="color:#FFFFFF";>&nbsp;OpenWebRX</h4>
             <img id="webrx-rx-avatar-background" src="gfx/openwebrx-avatar-background.png" onclick="toggle_rx_photo();"/>
             <img id="webrx-rx-avatar" src="gfx/openwebrx-avatar.png" onclick="toggle_rx_photo();"/>
             <div id="webrx-rx-title" onclick="toggle_rx_photo();">%[RX_TITLE]</div>
