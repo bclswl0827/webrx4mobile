@@ -12,6 +12,6 @@ Now, it's available on [s.ibcl.us/webview/m.wrx](https://s.ibcl.us/webview/m.wrx
 
 ![Google Pixel](https://user-images.githubusercontent.com/24319042/63072034-56724c00-bf54-11e9-867b-76e19852b67d.jpg)
 
-## Instructions
+## How to
 
 You just need to replace the files in `htdocs` folder.
