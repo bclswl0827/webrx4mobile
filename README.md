@@ -15,3 +15,7 @@ Now, it's available on [s.ibcl.us/webview/m.wrx](https://s.ibcl.us/webview/m.wrx
 ## How to
 
 You just need to replace the files in `htdocs` folder.
+
+## License
+
+MIT
